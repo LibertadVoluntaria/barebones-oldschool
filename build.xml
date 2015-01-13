@@ -1,0 +1,54 @@
+<project default="build" basedir=".">
+
+    <property name="src" location="src" />
+    <property name="resources" location="resources" />
+    <property name="build" location="build" />
+    <property name="binaries" location="bin" />
+
+    <target name="init" depends="clean">
+        <tstamp/>
+        <mkdir dir="${build}" />
+        <mkdir dir="${binaries} "/>
+    </target>
+
+    <target name="compile" depends="init">
+        <javac srcdir="${src}" destdir="${build}" debug="on">
+            <classpath>
+                <pathelement path="${java.class.path}/"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="build" depends="compile">
+        <jar destfile="${binaries}/OldSchool RuneScape.jar">
+            <fileset dir="${build}/" />
+            <fileset dir="${resources}" />
+            <manifest>
+                <attribute name="Main-Class"
+                           value="com.github.libertadvoluntaria.Application"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java classname="com.github.libertadvoluntaria.Application" fork="true">
+            <jvmarg value="-Xmx256m" />
+            <jvmarg value="-Xss2m" />
+            <jvmarg value="-Dsun.java2d.noddraw=true" />
+            <jvmarg value="-XX:CompileThreshold=1500" />
+            <jvmarg value="-XX:+UseConcMarkSweepGC" />
+            <jvmarg value="-XX:+UseParNewGC" />
+            <classpath>
+                <pathelement path="${build}" />
+                <pathelement path="${resources}" />
+                <pathelement location="." />
+            </classpath>
+        </java>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build}" />
+        <delete dir="${binaries}" />
+    </target>
+
+</project>
