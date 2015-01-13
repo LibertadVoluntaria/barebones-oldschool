@@ -13,6 +13,7 @@ $ ant build
 These binaries require Java 1.8.0 or later to be installed.
 
 A cross-platform Java executable is available at <https://github.com/LibertadVoluntaria/barebones-oldschool/blob/master/bin/OldSchool%20RuneScape.jar?raw=true>.
+
 A Windows Vista/7/8 executable with a nice icon is available at <https://github.com/LibertadVoluntaria/barebones-oldschool/blob/master/bin/win32-x86_32/OldSchool%20RuneScape.exe?raw=true>.
 
 ### Legalese
