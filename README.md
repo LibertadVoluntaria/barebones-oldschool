@@ -3,6 +3,21 @@ barebones-client
 
 An OldSchool RuneScape client without the bells and whistles.
 
+The default world is 327 (my home world), but you can currently set it to whatever
+you want (including the bot worlds 385 and 386) by making a shortcut to the executable, right-clicking
+into Properties, and appending the world number in the Target field.
+Example: If you wanted to set it to 330, and the executable was in your Downloads
+directory, you'd make sure the Target field for your shortcut looks like this:
+```
+"C:\Users\You\Downloads\OldSchool RuneScape.exe" 330
+```
+
+You can make it load into any world you'd like just for the session by passing the world number as an argument
+into your Terminal (cmd or Powershell for Windows users):
+```
+"OldSchool RuneScape.exe" 330
+```
+
 ### Build
 Build using Ant.
 ```

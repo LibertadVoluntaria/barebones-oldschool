@@ -39,7 +39,8 @@ import javax.swing.*;
 
 public class ClientLoader {
 
-    private String world = "30";
+    /* World to load into by default */
+    private String world = "27";
 
     private URL appletUrl;
     private WebCrawler crawler;
@@ -48,6 +49,14 @@ public class ClientLoader {
 
     public ClientLoader(String world) throws IOException {
         if (world != null) {
+            /*
+             * If user inputs the actual number of the world (e.g. 330), chop
+             * off the preceding "3" to correctly make the world link out of it
+             */
+            if (world.startsWith("3") && world.length() == 3) {
+                world = world.substring(1, 3);
+            }
+
             this.world = world;
         }
 
