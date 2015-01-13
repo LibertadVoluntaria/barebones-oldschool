@@ -12,6 +12,11 @@ directory, you'd make sure the Target field for your shortcut looks like this:
 "C:\Users\You\Downloads\OldSchool RuneScape.exe" 330
 ```
 
+You may also pass world numbers in a more casual notation, like so:
+```
+"C:\Users\You\Downloads\OldSchool RuneScape.exe" 30
+```
+
 You can make it load into any world you'd like just for the session by passing the world number as an argument
 into your Terminal (cmd or Powershell for Windows users):
 ```
