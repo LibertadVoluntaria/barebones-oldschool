@@ -34,7 +34,7 @@ import java.net.URL;
 import javax.swing.*;
 import javax.imageio.ImageIO;
 
-public class GameGui extends JFrame {
+public class GameFrame extends JFrame {
 
     private final Dimension GAME_PANEL_DIMENSION = new Dimension(765, 503);
     private final String TITLE = "Old School RuneScape";
@@ -46,7 +46,7 @@ public class GameGui extends JFrame {
     private ClientAppletStub stub;
     private JPanel gamePanel;
 
-    public GameGui(String world) throws IOException {
+    public GameFrame(String world) throws Exception {
         super();
 
         this.setTitle(TITLE);
@@ -54,7 +54,12 @@ public class GameGui extends JFrame {
         this.setResizable(false);
         this.setLayout(new BorderLayout());
 
-        this.loader = new ClientLoader(world);
+        try {
+            this.loader = new ClientLoader(world);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(-1);
+        }
     }
 
     public void start() {

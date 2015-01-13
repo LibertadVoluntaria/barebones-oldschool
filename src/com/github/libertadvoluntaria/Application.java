@@ -20,21 +20,26 @@
 
 package com.github.libertadvoluntaria;
 
-import com.github.libertadvoluntaria.game.GameGui;
+import com.github.libertadvoluntaria.game.GameFrame;
+import com.github.libertadvoluntaria.util.runescape.Worlds;
 
 public class Application {
 
    public static void main(String[] args) {
-        GameGui gameGui;
+        GameFrame gameFrame;
+
+        String world;
+
+        if (args.length >= 1) {
+            world = Worlds.validateWorld(args[0]);
+        } else {
+            world = Worlds.getDefaultWorld();
+        }
 
         try {
-            if (args.length >= 1) {
-                gameGui = new GameGui(args[0]);
-            } else {
-                gameGui = new GameGui(null);
-            }
+            gameFrame = new GameFrame(world);
 
-            gameGui.start();
+            gameFrame.start();
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(-1);

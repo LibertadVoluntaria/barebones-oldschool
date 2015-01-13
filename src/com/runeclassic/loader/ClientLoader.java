@@ -39,33 +39,18 @@ import javax.swing.*;
 
 public class ClientLoader {
 
-    /* World to load into by default */
-    private String world = "27";
+    private static String currentWorld;
 
     private URL appletUrl;
     private WebCrawler crawler;
     private URLClassLoader urlClassLoader;
     private ClientAppletStub stub;
 
-    public ClientLoader(String world) throws IOException {
-        if (world != null) {
-            /*
-             * If user inputs the actual number of the world (e.g. 330), chop
-             * off the preceding "3" to correctly make the world link out of it
-             */
-            if (world.startsWith("3") && world.length() == 3) {
-                world = world.substring(1);
-
-                if (world.startsWith("0")) {
-                    world = world.substring(1);
-                }
-            }
-
-            this.world = world;
-        }
+    public ClientLoader(String world) throws Exception {
+        this.currentWorld = world;
 
         this.appletUrl
-            = new URL("http://oldschool" + this.world + ".runescape.com/");
+            = new URL("http://oldschool" + this.currentWorld + ".runescape.com/");
         this.crawler = new WebCrawler(appletUrl);
         this.stub = new ClientAppletStub(this.appletUrl, this.crawler);
         crawler.start();
@@ -96,6 +81,6 @@ public class ClientLoader {
     }
 
     public String getWorld() {
-        return world;
+        return currentWorld;
     }
 }
