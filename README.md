@@ -18,7 +18,7 @@ A Windows Vista/7/8 executable with a nice icon is available at <https://github.
 
 ### Legalese
 
-Copyright 2014-2015 Luis <luisg at riseup.net>.
+Copyright 2014-2015 Luis.
 
 Barebones OldSchool is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
