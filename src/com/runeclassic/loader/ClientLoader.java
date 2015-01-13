@@ -54,7 +54,11 @@ public class ClientLoader {
              * off the preceding "3" to correctly make the world link out of it
              */
             if (world.startsWith("3") && world.length() == 3) {
-                world = world.substring(1, 3);
+                world = world.substring(1);
+
+                if (world.startsWith("0")) {
+                    world = world.substring(1);
+                }
             }
 
             this.world = world;
