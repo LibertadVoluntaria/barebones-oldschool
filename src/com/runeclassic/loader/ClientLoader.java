@@ -50,9 +50,11 @@ public class ClientLoader {
         this.currentWorld = world;
 
         this.appletUrl
-            = new URL("http://oldschool" + this.currentWorld + ".runescape.com/");
+            = new URL("http://oldschool" +
+                this.currentWorld + ".runescape.com/");
         this.crawler = new WebCrawler(appletUrl);
         this.stub = new ClientAppletStub(this.appletUrl, this.crawler);
+
         crawler.start();
     }
 
@@ -64,6 +66,7 @@ public class ClientLoader {
         urlClassLoader = new URLClassLoader(sources);
 
         String mainClass = crawler.getProperty("main-class");
+
         Class<?> appletClass = urlClassLoader
             .loadClass(mainClass.substring(0, mainClass.length() - 6));
 
