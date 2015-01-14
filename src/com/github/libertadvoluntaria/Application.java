@@ -20,7 +20,7 @@
 
 package com.github.libertadvoluntaria;
 
-import com.github.libertadvoluntaria.game.GameFrame;
+import com.github.libertadvoluntaria.gui.GameFrame;
 import com.github.libertadvoluntaria.util.runescape.Worlds;
 
 public class Application {

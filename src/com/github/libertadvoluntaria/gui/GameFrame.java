@@ -18,7 +18,7 @@
  * If not, see <http://www.gnu.org/licenses/gpl.txt>.
  */
 
-package com.github.libertadvoluntaria.game;
+package com.github.libertadvoluntaria.gui;
 
 import com.github.libertadvoluntaria.util.FileUtil;
 
