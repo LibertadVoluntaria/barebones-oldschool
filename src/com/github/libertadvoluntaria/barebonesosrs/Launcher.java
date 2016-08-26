@@ -41,9 +41,13 @@ public class Launcher {
             System.err.println("You somehow don't have UTF-8, let\'s hope we can somehow do without.");
         }
 
-        String commandBaseStr = "javaw -Xmx256m -Dsun.java2d.noddraw=true -XX:CompileThreshold=1500 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -cp";
+        String commandBaseStr = "java -Xmx256m -Dsun.java2d.noddraw=true -XX:CompileThreshold=1500 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -cp";
         String commandStr = commandBaseStr + " " + "\"" + jarLocStr + "\"" +
             " " + "com.github.libertadvoluntaria.barebonesosrs.BarebonesOsrs";
+        if (args.length >= 1) {
+            commandStr = commandStr +" " + args[0];
+        }
+
         Process barebonesOsrsProc = null;
         try {
             barebonesOsrsProc = Runtime.getRuntime().exec(commandStr);
