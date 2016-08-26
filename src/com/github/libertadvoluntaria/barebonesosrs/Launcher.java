@@ -20,7 +20,6 @@ import java.net.URISyntaxException;
 import java.net.URLDecoder;
 import java.net.URL;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 
 public class Launcher {
 
@@ -42,35 +41,16 @@ public class Launcher {
             System.err.println("You somehow don't have UTF-8, let\'s hope we can somehow do without.");
         }
 
-        //jarLocStr = jarLocStr.replaceFirst("file:", "");
-
         String commandBaseStr = "javaw -Xmx256m -Dsun.java2d.noddraw=true -XX:CompileThreshold=1500 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -cp";
         String commandStr = commandBaseStr + " " + "\"" + jarLocStr + "\"" +
             " " + "com.github.libertadvoluntaria.barebonesosrs.BarebonesOsrs";
-
-
-        //String[] argsArr = commandStr.split(" ");
-        //ArrayList argsList = new ArrayList<>();
-        ProcessBuilder procBuild = new ProcessBuilder();
-        procBuild.command(commandStr);
-
+        Process barebonesOsrsProc = null;
         try {
-            Process barebonesOsrsProc = procBuild.start();
+            barebonesOsrsProc = Runtime.getRuntime().exec(commandStr);
         } catch (Exception e) {
-            System.err.println("Something probably unrecoverable has happened, exiting.");
+            System.err.println("Something probably unrecoverable has happened, exiting:");
             e.printStackTrace();
             System.exit(1);
         }
-
-        /*
-        try {
-            Runtime.getRuntime().exec(commandStr);
-        } catch (Exception e) {
-            System.err.println("Something probably unrecoverable has happened, exiting.");
-            e.printStackTrace();
-            System.exit(1);
-        }
-                */
-        System.exit(0);
     }
 }
