@@ -34,5 +34,5 @@ GNU General Public License for more details.
 "OldSchool RuneScape" is Copyright 2013-2016 Jagex Ltd. You may play OldSchool
 RuneScape at <http://oldschool.runescape.com>.
 
-The images/logos used in this program are Copyright 2013 Jagex Ltd.unless
+The images/logos used in this program are Copyright 2013 Jagex Ltd. unless
 specified otherwise.
