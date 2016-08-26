@@ -1,7 +1,7 @@
 <project default="build" basedir=".">
 
     <property name="src" location="src" />
-    <property name="resources" location="resources" />
+    <property name="resources" location="res" />
     <property name="build" location="build" />
     <property name="binaries" location="bin" />
 
@@ -17,27 +17,23 @@
                 <pathelement path="${java.class.path}/"/>
             </classpath>
         </javac>
+        <copy todir="${build}">
+            <fileset dir="${resources}"/>
+        </copy>
     </target>
 
     <target name="build" depends="compile">
         <jar destfile="${binaries}/OldSchool RuneScape.jar">
             <fileset dir="${build}/" />
-            <fileset dir="${resources}" />
             <manifest>
                 <attribute name="Main-Class"
-                           value="com.github.libertadvoluntaria.Application"/>
+                           value="com.github.libertadvoluntaria.barebonesosrs.Launcher"/>
             </manifest>
         </jar>
     </target>
 
     <target name="run">
-        <java classname="com.github.libertadvoluntaria.Application" fork="true">
-            <jvmarg value="-Xmx256m" />
-            <jvmarg value="-Xss2m" />
-            <jvmarg value="-Dsun.java2d.noddraw=true" />
-            <jvmarg value="-XX:CompileThreshold=1500" />
-            <jvmarg value="-XX:+UseConcMarkSweepGC" />
-            <jvmarg value="-XX:+UseParNewGC" />
+        <java classname="com.github.libertadvoluntaria.barebonesosrs.Launcher" fork="true">
             <classpath>
                 <pathelement path="${build}" />
                 <pathelement path="${resources}" />
