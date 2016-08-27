@@ -30,7 +30,7 @@ public class Launcher {
         try {
             jarLocStr = Paths.get(jarUrl.toURI()).toString();
         } catch (URISyntaxException e) {
-            System.err.println("Something wacky related to that jar's location just happened. It is probably unrecoverable, exiting.");
+            System.err.println("Something wacky related to the jar\'s location just happened. It is probably unrecoverable, exiting.");
             e.printStackTrace();
             System.exit(1);
         }
@@ -41,7 +41,7 @@ public class Launcher {
             System.err.println("You somehow don't have UTF-8, let\'s hope we can somehow do without.");
         }
 
-        String commandBaseStr = "java -Xmx256m -Dsun.java2d.noddraw=true -XX:CompileThreshold=1500 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -cp";
+        String commandBaseStr = "java -Xmx256m -Dsun.java2d.noddraw=true -XX:CompileThreshold=1500 -XX:incgc -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -cp";
         String commandStr = commandBaseStr + " " + "\"" + jarLocStr + "\"" +
             " " + "com.github.libertadvoluntaria.barebonesosrs.BarebonesOsrs";
         if (args.length >= 1) {
