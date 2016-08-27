@@ -17,8 +17,8 @@ package com.github.libertadvoluntaria.barebonesosrs;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
-import java.net.URLDecoder;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.nio.file.Paths;
 
 public class Launcher {
