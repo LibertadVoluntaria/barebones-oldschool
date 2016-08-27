@@ -45,7 +45,7 @@ public class Launcher {
         String commandStr = commandBaseStr + " " + "\"" + jarLocStr + "\"" +
             " " + "com.github.libertadvoluntaria.barebonesosrs.BarebonesOsrs";
         if (args.length >= 1) {
-            commandStr = commandStr +" " + args[0];
+            commandStr = commandStr + " " + args[0];
         }
 
         Process barebonesOsrsProc = null;
