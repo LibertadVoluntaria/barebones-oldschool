@@ -51,12 +51,6 @@ public class BarebonesOsrs {
 
    }
 
-   /**
-    * Returns the name/branding of the application. This is not necessarily the
-    * project name, currently Finibus. The name should reflect any potential
-    * branding, release, or edition of the application, such as: Pro,
-    * Developer Edition, Lite, etc.
-    */
    public static String getAppName() {
        return APP_NAME;
    }
