@@ -39,7 +39,7 @@ import java.util.regex.Pattern;
 
 /**
  * Crawls the RuneScape webclient page - reading and parsing all the properties
- * which are passed into the client applet.
+ * which are passed to the client applet.
  *
  * @author hikilaka
  * @author luis
@@ -58,8 +58,6 @@ public final class WebCrawler {
 
     final private static Pattern PARAMETER_PATTERN
         = Pattern.compile("<param name=([^\\s]+)\\s+value=([^>]*)>");
-
-    final private boolean verboseMode = true;
 
     public WebCrawler(URL url) {
         this.url = url;
@@ -107,10 +105,6 @@ public final class WebCrawler {
         }
     }
 
-    /*
-     * TO-DO:   Clean it up a bit, notably use regex exclusively, there was a
-     *          bug in the original implementation that used entirely regex.
-     */
     private void parseWebContents(String contents) {
         // Parse the parameters.
         Matcher matcher = PARAMETER_PATTERN.matcher(contents);
