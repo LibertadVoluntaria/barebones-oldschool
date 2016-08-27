@@ -68,7 +68,6 @@ public class ClientLoader {
         classLoader = new URLClassLoader(sources);
         Class<?> appletClass = null;
         Applet applet = null;
-
         try {
             String mainClassNameShortened
                 = mainClassName.substring(0, mainClassName.length() -6);
