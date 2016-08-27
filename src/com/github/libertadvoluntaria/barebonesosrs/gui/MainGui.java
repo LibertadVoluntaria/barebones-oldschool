@@ -27,7 +27,12 @@ import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.net.URL;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+//import javax.swing.JPopupMenu;
+import javax.swing.SwingUtilities;
 import javax.imageio.ImageIO;
 
 public class MainGui extends JFrame {
@@ -63,7 +68,8 @@ public class MainGui extends JFrame {
 
     public void startGui() {
         SwingUtilities.invokeLater(() -> {
-            JPopupMenu.setDefaultLightWeightPopupEnabled(false);
+            // JPopupMenu.setDefaultLightWeightPopupEnabled(false);
+            //      if we ever add a menu bar, this would fix a drawing bug
             addIcon();
             addComponents();
             setLoadingLabel();
@@ -76,7 +82,6 @@ public class MainGui extends JFrame {
         try {
             loader.loadClient();
         } catch (Exception e) {
-            // TO-DO:   Inform the user that this has happened.
             System.err.println("Failed to load RuneScape's client.");
             e.printStackTrace();
         }
@@ -86,7 +91,6 @@ public class MainGui extends JFrame {
         } catch (Exception e) {
             System.err.println("Failed to load client's applet.");
             e.printStackTrace();
-            // fallback();
             return;
         }
 
@@ -150,8 +154,7 @@ public class MainGui extends JFrame {
     private void addApplet() {
         try {
             gamePanel.remove(loadingLabel);
-            loadingLabel = null;    // Let the loading label be garbage
-                                    // collected, as it is no longer needed
+            loadingLabel = null; // no longer needed
             gamePanel.add(client, BorderLayout.CENTER);
             stub.setActive(true);
         } catch (Exception e) {
