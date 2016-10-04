@@ -47,10 +47,9 @@ public class Launcher {
         if (args.length >= 1) {
             commandStr = commandStr + " " + args[0];
         }
-
-        Process barebonesOsrsProc = null;
+        
         try {
-            barebonesOsrsProc = Runtime.getRuntime().exec(commandStr);
+            Runtime.getRuntime().exec(commandStr);
         } catch (Exception e) {
             System.err.println("Something probably unrecoverable has happened, exiting:");
             e.printStackTrace();
